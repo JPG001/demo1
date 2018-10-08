@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.GuestMapper">
+  <resultMap id="BaseResultMap" type="com.Guest">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="store_id" jdbcType="BIGINT" property="storeId" />
+    <result column="guest_no" jdbcType="VARCHAR" property="guestNo" />
+    <result column="guest_name" jdbcType="VARCHAR" property="guestName" />
+    <result column="linkman" jdbcType="VARCHAR" property="linkman" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="lines_id" jdbcType="BIGINT" property="linesId" />
+    <result column="is_open" jdbcType="INTEGER" property="isOpen" />
+    <result column="sum_sendbills" jdbcType="INTEGER" property="sumSendbills" />
+    <result column="province_id" jdbcType="BIGINT" property="provinceId" />
+    <result column="city_id" jdbcType="BIGINT" property="cityId" />
+    <result column="area_id" jdbcType="BIGINT" property="areaId" />
+    <result column="province_name" jdbcType="VARCHAR" property="provinceName" />
+    <result column="city_name" jdbcType="VARCHAR" property="cityName" />
+    <result column="area_name" jdbcType="VARCHAR" property="areaName" />
+    <result column="register_mobile" jdbcType="VARCHAR" property="registerMobile" />
+    <result column="is_register" jdbcType="INTEGER" property="isRegister" />
+    <result column="is_site_guest" jdbcType="INTEGER" property="isSiteGuest" />
+    <result column="sum_receive_bills" jdbcType="INTEGER" property="sumReceiveBills" />
+    <result column="create_date" jdbcType="BIGINT" property="createDate" />
+    <result column="last_send_time" jdbcType="BIGINT" property="lastSendTime" />
+    <result column="last_receive_time" jdbcType="BIGINT" property="lastReceiveTime" />
+    <result column="site_id" jdbcType="BIGINT" property="siteId" />
+    <result column="is_gather" jdbcType="INTEGER" property="isGather" />
+    <result column="longitude" jdbcType="VARCHAR" property="longitude" />
+    <result column="latitude" jdbcType="VARCHAR" property="latitude" />
+    <result column="guest_sourse" jdbcType="BIT" property="guestSourse" />
+    <result column="register_date" jdbcType="BIGINT" property="registerDate" />
+    <result column="pinyin_code" jdbcType="VARCHAR" property="pinyinCode" />
+    <result column="other_mobile" jdbcType="VARCHAR" property="otherMobile" />
+    <result column="membership_card" jdbcType="VARCHAR" property="membershipCard" />
+    <result column="is_activation" jdbcType="INTEGER" property="isActivation" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
+    <result column="source_plat" jdbcType="VARCHAR" property="sourcePlat" />
+    <result column="send_type" jdbcType="INTEGER" property="sendType" />
+    <result column="since_dot_id" jdbcType="BIGINT" property="sinceDotId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, store_id, guest_no, guest_name, linkman, tel, address, remark, lines_id, is_open, 
+    sum_sendbills, province_id, city_id, area_id, province_name, city_name, area_name, 
+    register_mobile, is_register, is_site_guest, sum_receive_bills, create_date, last_send_time, 
+    last_receive_time, site_id, is_gather, longitude, latitude, guest_sourse, register_date, 
+    pinyin_code, other_mobile, membership_card, is_activation, type, modify_time, source_plat, 
+    send_type, since_dot_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from b_guest
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from b_guest
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.Guest">
+    insert into b_guest (id, store_id, guest_no, 
+      guest_name, linkman, tel, 
+      address, remark, lines_id, 
+      is_open, sum_sendbills, province_id, 
+      city_id, area_id, province_name, 
+      city_name, area_name, register_mobile, 
+      is_register, is_site_guest, sum_receive_bills, 
+      create_date, last_send_time, last_receive_time, 
+      site_id, is_gather, longitude, 
+      latitude, guest_sourse, register_date, 
+      pinyin_code, other_mobile, membership_card, 
+      is_activation, type, modify_time, 
+      source_plat, send_type, since_dot_id
+      )
+    values (#{id,jdbcType=BIGINT}, #{storeId,jdbcType=BIGINT}, #{guestNo,jdbcType=VARCHAR}, 
+      #{guestName,jdbcType=VARCHAR}, #{linkman,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{linesId,jdbcType=BIGINT}, 
+      #{isOpen,jdbcType=INTEGER}, #{sumSendbills,jdbcType=INTEGER}, #{provinceId,jdbcType=BIGINT}, 
+      #{cityId,jdbcType=BIGINT}, #{areaId,jdbcType=BIGINT}, #{provinceName,jdbcType=VARCHAR}, 
+      #{cityName,jdbcType=VARCHAR}, #{areaName,jdbcType=VARCHAR}, #{registerMobile,jdbcType=VARCHAR}, 
+      #{isRegister,jdbcType=INTEGER}, #{isSiteGuest,jdbcType=INTEGER}, #{sumReceiveBills,jdbcType=INTEGER}, 
+      #{createDate,jdbcType=BIGINT}, #{lastSendTime,jdbcType=BIGINT}, #{lastReceiveTime,jdbcType=BIGINT}, 
+      #{siteId,jdbcType=BIGINT}, #{isGather,jdbcType=INTEGER}, #{longitude,jdbcType=VARCHAR}, 
+      #{latitude,jdbcType=VARCHAR}, #{guestSourse,jdbcType=BIT}, #{registerDate,jdbcType=BIGINT}, 
+      #{pinyinCode,jdbcType=VARCHAR}, #{otherMobile,jdbcType=VARCHAR}, #{membershipCard,jdbcType=VARCHAR}, 
+      #{isActivation,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, #{modifyTime,jdbcType=TIMESTAMP}, 
+      #{sourcePlat,jdbcType=VARCHAR}, #{sendType,jdbcType=INTEGER}, #{sinceDotId,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.Guest">
+    insert into b_guest
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="storeId != null">
+        store_id,
+      </if>
+      <if test="guestNo != null">
+        guest_no,
+      </if>
+      <if test="guestName != null">
+        guest_name,
+      </if>
+      <if test="linkman != null">
+        linkman,
+      </if>
+      <if test="tel != null">
+        tel,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="linesId != null">
+        lines_id,
+      </if>
+      <if test="isOpen != null">
+        is_open,
+      </if>
+      <if test="sumSendbills != null">
+        sum_sendbills,
+      </if>
+      <if test="provinceId != null">
+        province_id,
+      </if>
+      <if test="cityId != null">
+        city_id,
+      </if>
+      <if test="areaId != null">
+        area_id,
+      </if>
+      <if test="provinceName != null">
+        province_name,
+      </if>
+      <if test="cityName != null">
+        city_name,
+      </if>
+      <if test="areaName != null">
+        area_name,
+      </if>
+      <if test="registerMobile != null">
+        register_mobile,
+      </if>
+      <if test="isRegister != null">
+        is_register,
+      </if>
+      <if test="isSiteGuest != null">
+        is_site_guest,
+      </if>
+      <if test="sumReceiveBills != null">
+        sum_receive_bills,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="lastSendTime != null">
+        last_send_time,
+      </if>
+      <if test="lastReceiveTime != null">
+        last_receive_time,
+      </if>
+      <if test="siteId != null">
+        site_id,
+      </if>
+      <if test="isGather != null">
+        is_gather,
+      </if>
+      <if test="longitude != null">
+        longitude,
+      </if>
+      <if test="latitude != null">
+        latitude,
+      </if>
+      <if test="guestSourse != null">
+        guest_sourse,
+      </if>
+      <if test="registerDate != null">
+        register_date,
+      </if>
+      <if test="pinyinCode != null">
+        pinyin_code,
+      </if>
+      <if test="otherMobile != null">
+        other_mobile,
+      </if>
+      <if test="membershipCard != null">
+        membership_card,
+      </if>
+      <if test="isActivation != null">
+        is_activation,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="modifyTime != null">
+        modify_time,
+      </if>
+      <if test="sourcePlat != null">
+        source_plat,
+      </if>
+      <if test="sendType != null">
+        send_type,
+      </if>
+      <if test="sinceDotId != null">
+        since_dot_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="storeId != null">
+        #{storeId,jdbcType=BIGINT},
+      </if>
+      <if test="guestNo != null">
+        #{guestNo,jdbcType=VARCHAR},
+      </if>
+      <if test="guestName != null">
+        #{guestName,jdbcType=VARCHAR},
+      </if>
+      <if test="linkman != null">
+        #{linkman,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="linesId != null">
+        #{linesId,jdbcType=BIGINT},
+      </if>
+      <if test="isOpen != null">
+        #{isOpen,jdbcType=INTEGER},
+      </if>
+      <if test="sumSendbills != null">
+        #{sumSendbills,jdbcType=INTEGER},
+      </if>
+      <if test="provinceId != null">
+        #{provinceId,jdbcType=BIGINT},
+      </if>
+      <if test="cityId != null">
+        #{cityId,jdbcType=BIGINT},
+      </if>
+      <if test="areaId != null">
+        #{areaId,jdbcType=BIGINT},
+      </if>
+      <if test="provinceName != null">
+        #{provinceName,jdbcType=VARCHAR},
+      </if>
+      <if test="cityName != null">
+        #{cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="areaName != null">
+        #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="registerMobile != null">
+        #{registerMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="isRegister != null">
+        #{isRegister,jdbcType=INTEGER},
+      </if>
+      <if test="isSiteGuest != null">
+        #{isSiteGuest,jdbcType=INTEGER},
+      </if>
+      <if test="sumReceiveBills != null">
+        #{sumReceiveBills,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=BIGINT},
+      </if>
+      <if test="lastSendTime != null">
+        #{lastSendTime,jdbcType=BIGINT},
+      </if>
+      <if test="lastReceiveTime != null">
+        #{lastReceiveTime,jdbcType=BIGINT},
+      </if>
+      <if test="siteId != null">
+        #{siteId,jdbcType=BIGINT},
+      </if>
+      <if test="isGather != null">
+        #{isGather,jdbcType=INTEGER},
+      </if>
+      <if test="longitude != null">
+        #{longitude,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null">
+        #{latitude,jdbcType=VARCHAR},
+      </if>
+      <if test="guestSourse != null">
+        #{guestSourse,jdbcType=BIT},
+      </if>
+      <if test="registerDate != null">
+        #{registerDate,jdbcType=BIGINT},
+      </if>
+      <if test="pinyinCode != null">
+        #{pinyinCode,jdbcType=VARCHAR},
+      </if>
+      <if test="otherMobile != null">
+        #{otherMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="membershipCard != null">
+        #{membershipCard,jdbcType=VARCHAR},
+      </if>
+      <if test="isActivation != null">
+        #{isActivation,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sourcePlat != null">
+        #{sourcePlat,jdbcType=VARCHAR},
+      </if>
+      <if test="sendType != null">
+        #{sendType,jdbcType=INTEGER},
+      </if>
+      <if test="sinceDotId != null">
+        #{sinceDotId,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.Guest">
+    update b_guest
+    <set>
+      <if test="storeId != null">
+        store_id = #{storeId,jdbcType=BIGINT},
+      </if>
+      <if test="guestNo != null">
+        guest_no = #{guestNo,jdbcType=VARCHAR},
+      </if>
+      <if test="guestName != null">
+        guest_name = #{guestName,jdbcType=VARCHAR},
+      </if>
+      <if test="linkman != null">
+        linkman = #{linkman,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="linesId != null">
+        lines_id = #{linesId,jdbcType=BIGINT},
+      </if>
+      <if test="isOpen != null">
+        is_open = #{isOpen,jdbcType=INTEGER},
+      </if>
+      <if test="sumSendbills != null">
+        sum_sendbills = #{sumSendbills,jdbcType=INTEGER},
+      </if>
+      <if test="provinceId != null">
+        province_id = #{provinceId,jdbcType=BIGINT},
+      </if>
+      <if test="cityId != null">
+        city_id = #{cityId,jdbcType=BIGINT},
+      </if>
+      <if test="areaId != null">
+        area_id = #{areaId,jdbcType=BIGINT},
+      </if>
+      <if test="provinceName != null">
+        province_name = #{provinceName,jdbcType=VARCHAR},
+      </if>
+      <if test="cityName != null">
+        city_name = #{cityName,jdbcType=VARCHAR},
+      </if>
+      <if test="areaName != null">
+        area_name = #{areaName,jdbcType=VARCHAR},
+      </if>
+      <if test="registerMobile != null">
+        register_mobile = #{registerMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="isRegister != null">
+        is_register = #{isRegister,jdbcType=INTEGER},
+      </if>
+      <if test="isSiteGuest != null">
+        is_site_guest = #{isSiteGuest,jdbcType=INTEGER},
+      </if>
+      <if test="sumReceiveBills != null">
+        sum_receive_bills = #{sumReceiveBills,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=BIGINT},
+      </if>
+      <if test="lastSendTime != null">
+        last_send_time = #{lastSendTime,jdbcType=BIGINT},
+      </if>
+      <if test="lastReceiveTime != null">
+        last_receive_time = #{lastReceiveTime,jdbcType=BIGINT},
+      </if>
+      <if test="siteId != null">
+        site_id = #{siteId,jdbcType=BIGINT},
+      </if>
+      <if test="isGather != null">
+        is_gather = #{isGather,jdbcType=INTEGER},
+      </if>
+      <if test="longitude != null">
+        longitude = #{longitude,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null">
+        latitude = #{latitude,jdbcType=VARCHAR},
+      </if>
+      <if test="guestSourse != null">
+        guest_sourse = #{guestSourse,jdbcType=BIT},
+      </if>
+      <if test="registerDate != null">
+        register_date = #{registerDate,jdbcType=BIGINT},
+      </if>
+      <if test="pinyinCode != null">
+        pinyin_code = #{pinyinCode,jdbcType=VARCHAR},
+      </if>
+      <if test="otherMobile != null">
+        other_mobile = #{otherMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="membershipCard != null">
+        membership_card = #{membershipCard,jdbcType=VARCHAR},
+      </if>
+      <if test="isActivation != null">
+        is_activation = #{isActivation,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="modifyTime != null">
+        modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sourcePlat != null">
+        source_plat = #{sourcePlat,jdbcType=VARCHAR},
+      </if>
+      <if test="sendType != null">
+        send_type = #{sendType,jdbcType=INTEGER},
+      </if>
+      <if test="sinceDotId != null">
+        since_dot_id = #{sinceDotId,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.Guest">
+    update b_guest
+    set store_id = #{storeId,jdbcType=BIGINT},
+      guest_no = #{guestNo,jdbcType=VARCHAR},
+      guest_name = #{guestName,jdbcType=VARCHAR},
+      linkman = #{linkman,jdbcType=VARCHAR},
+      tel = #{tel,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      lines_id = #{linesId,jdbcType=BIGINT},
+      is_open = #{isOpen,jdbcType=INTEGER},
+      sum_sendbills = #{sumSendbills,jdbcType=INTEGER},
+      province_id = #{provinceId,jdbcType=BIGINT},
+      city_id = #{cityId,jdbcType=BIGINT},
+      area_id = #{areaId,jdbcType=BIGINT},
+      province_name = #{provinceName,jdbcType=VARCHAR},
+      city_name = #{cityName,jdbcType=VARCHAR},
+      area_name = #{areaName,jdbcType=VARCHAR},
+      register_mobile = #{registerMobile,jdbcType=VARCHAR},
+      is_register = #{isRegister,jdbcType=INTEGER},
+      is_site_guest = #{isSiteGuest,jdbcType=INTEGER},
+      sum_receive_bills = #{sumReceiveBills,jdbcType=INTEGER},
+      create_date = #{createDate,jdbcType=BIGINT},
+      last_send_time = #{lastSendTime,jdbcType=BIGINT},
+      last_receive_time = #{lastReceiveTime,jdbcType=BIGINT},
+      site_id = #{siteId,jdbcType=BIGINT},
+      is_gather = #{isGather,jdbcType=INTEGER},
+      longitude = #{longitude,jdbcType=VARCHAR},
+      latitude = #{latitude,jdbcType=VARCHAR},
+      guest_sourse = #{guestSourse,jdbcType=BIT},
+      register_date = #{registerDate,jdbcType=BIGINT},
+      pinyin_code = #{pinyinCode,jdbcType=VARCHAR},
+      other_mobile = #{otherMobile,jdbcType=VARCHAR},
+      membership_card = #{membershipCard,jdbcType=VARCHAR},
+      is_activation = #{isActivation,jdbcType=INTEGER},
+      type = #{type,jdbcType=INTEGER},
+      modify_time = #{modifyTime,jdbcType=TIMESTAMP},
+      source_plat = #{sourcePlat,jdbcType=VARCHAR},
+      send_type = #{sendType,jdbcType=INTEGER},
+      since_dot_id = #{sinceDotId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
