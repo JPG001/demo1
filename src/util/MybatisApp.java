@@ -10,7 +10,7 @@ import org.mybatis.generator.config.xml.ConfigurationParser;
 import org.mybatis.generator.internal.DefaultShellCallback;
 
 
-public class MybatisUtil {
+public class MybatisApp {
 	public static void main(String[] args) {
 		try {
 			List<String> warnings = new ArrayList<String>();
